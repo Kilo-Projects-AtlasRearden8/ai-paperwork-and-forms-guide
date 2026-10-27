@@ -111,6 +111,11 @@ body {
   outline: none;
 }
 
+.chapter-nav a.current {
+  background: var(--accent);
+  color: #ffffff;
+}
+
 .chapter {
   margin-bottom: 3rem;
 }
@@ -126,6 +131,13 @@ body {
   font-size: 1.15rem;
   font-weight: 600;
   margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+
+.chapter h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
   color: var(--text);
 }
 
@@ -165,6 +177,10 @@ body {
   letter-spacing: 0.05em;
 }
 
+.chapter tr:nth-child(even) td {
+  background: var(--surface);
+}
+
 .callout {
   border-left: 4px solid;
   padding: 0.85rem 1rem;
@@ -179,6 +195,21 @@ body {
 
 .callout p {
   margin: 0;
+}
+
+pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
 }
 
 .muted {
@@ -214,5 +245,28 @@ a:focus-visible {
   }
   .chapter-nav li:last-child a {
     border-bottom: none;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    line-height: 1.4;
+  }
+  .site-header,
+  .chapter-nav,
+  .callout.info,
+  .site-footer,
+  .muted {
+    display: none !important;
+  }
+  .chapter {
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
   }
 }
